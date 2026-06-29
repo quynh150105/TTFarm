@@ -1,0 +1,13 @@
+package quynh.family.TTFarm;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class TtFarmApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(TtFarmApplication.class, args);
+	}
+
+}
