@@ -7,9 +7,10 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import quynh.family.TTFarm.domain.dto.response.ApiResponse;
+import quynh.family.TTFarm.common.base.ApiResponse;
 
-import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
 
 @ControllerAdvice
 @Slf4j
@@ -27,10 +28,19 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiResponse<?>> handleValidationException(MethodArgumentNotValidException ex) {
-        String message = Objects.requireNonNull(ex.getBindingResult().getFieldError()).getDefaultMessage();
-        return ResponseEntity.badRequest().body(ApiResponse.builder()
-                .message(message)
-                .build());
+        Map<String, String> errors = new HashMap<>();
+
+        ex.getBindingResult().getFieldErrors().forEach(
+                error -> errors.put(error.getField(), error.getDefaultMessage())
+        );
+
+        ApiResponse<Map<String, String>> response = ApiResponse.<Map<String, String>>builder()
+                .data(errors)
+                .status(HttpStatus.BAD_REQUEST.value())
+                .message("Validation failed")
+                .build();
+
+        return ResponseEntity.badRequest().body(response);
     }
 
     @ExceptionHandler(AccessDeniedException.class)

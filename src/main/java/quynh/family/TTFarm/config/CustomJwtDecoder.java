@@ -8,8 +8,8 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtException;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.stereotype.Component;
-import quynh.family.TTFarm.domain.dto.request.IntrospectRequest;
-import quynh.family.TTFarm.service.AuthService;
+import quynh.family.TTFarm.auth.domain.dto.request.IntrospectRequest;
+import quynh.family.TTFarm.auth.service.AuthService;
 
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Objects;

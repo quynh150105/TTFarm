@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
-import quynh.family.TTFarm.domain.dto.response.ApiResponse;
+import quynh.family.TTFarm.common.base.ApiResponse;
 
 import java.io.IOException;
 

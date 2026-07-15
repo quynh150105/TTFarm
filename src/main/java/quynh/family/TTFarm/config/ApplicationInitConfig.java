@@ -7,9 +7,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import quynh.family.TTFarm.domain.entity.Role;
-import quynh.family.TTFarm.domain.entity.User;
-import quynh.family.TTFarm.repositoty.UserRepository;
+import quynh.family.TTFarm.common.unums.Role;
+import quynh.family.TTFarm.user.domain.entity.User;
+import quynh.family.TTFarm.user.repository.UserRepository;
 
 @Configuration
 @Slf4j
